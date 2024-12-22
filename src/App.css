@@ -1,3 +1,23 @@
 .page {
   min-height: 100vh;
 }
+
+.news-seach > input.form-control {
+    width: 600px;
+}
+
+.news-seach > .input-icon-addon {
+    z-index: 10;
+}
+
+@media only screen and (max-width: 992px) {
+    .news-seach > input.form-control {
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .news-seach > input.form-control {
+        width: 300px;
+    }
+}
