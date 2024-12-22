@@ -1,4 +1,5 @@
 import NewsSearch from './NewsSearch.jsx';
+import { NavLink } from "react-router";
 
 export default function TopHeader() {
   return (
@@ -8,9 +9,9 @@ export default function TopHeader() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <h1 className="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-          <a href=".">
+          <NavLink to="/">
             <img src="./static/logo.svg" width="110" height="32" alt="NewsFeed" className="navbar-brand-image" />
-          </a>
+          </NavLink>
         </h1>
 
         <div className="my-2 my-md-0 d-none d-md-block">
