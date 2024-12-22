@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tabler/core": "^1.0.0-beta21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "^7.1.0"
