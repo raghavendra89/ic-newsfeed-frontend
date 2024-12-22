@@ -2,12 +2,32 @@
   min-height: 100vh;
 }
 
+.rounded {
+    border-radius: 5px !important;
+}
+
+.mt-n2 {
+    margin-top: -0.5rem;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
 .news-seach > input.form-control {
     width: 600px;
 }
 
 .news-seach > .input-icon-addon {
     z-index: 10;
+}
+
+.carousel-caption h2 {
+    margin-bottom: 0;
+}
+
+svg.text-red {
+    fill: rgb(214, 57, 57);
 }
 
 @media only screen and (max-width: 992px) {

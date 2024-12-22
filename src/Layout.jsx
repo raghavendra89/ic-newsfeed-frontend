@@ -10,7 +10,7 @@ export default function Layout() {
       <SecondLevelHeader />
 
       <div className="page-wrapper">
-        <div className="page-header d-print-none">
+        {/*<div className="page-header d-print-none">
           <div className="container-xl">
             <div className="row g-2 align-items-center">
               <div className="col">
@@ -20,7 +20,7 @@ export default function Layout() {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         <div className="page-body">
           <div className="container-xl">
