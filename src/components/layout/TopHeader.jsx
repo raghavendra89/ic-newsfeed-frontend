@@ -3,6 +3,8 @@ import FilterIcon from './FilterIcon.jsx';
 import { NavLink } from "react-router";
 
 export default function TopHeader() {
+  const isLoggedIn = false;
+
   return (
     <header className="navbar navbar-expand-md d-print-none" >
       <div className="container-xl">
@@ -37,23 +39,49 @@ export default function TopHeader() {
             <FilterIcon />
           </div>
 
-          <div className="nav-item dropdown">
-            <a href="#" className="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-              <span className="avatar avatar-sm"></span>
-              <div className="d-none d-xl-block ps-2">
-                <div>Paweł Kuna</div>
-                <div className="mt-1 small text-secondary">UI Designer</div>
+          {
+            ! isLoggedIn &&
+            <div className="nav-item dropdown">
+              <a href="#" className="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+                <span className="avatar avatar-sm">
+                  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-user-cog"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h2.5" /><path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M19.001 15.5v1.5" /><path d="M19.001 21v1.5" /><path d="M22.032 17.25l-1.299 .75" /><path d="M17.27 20l-1.3 .75" /><path d="M15.97 17.25l1.3 .75" /><path d="M20.733 20l1.3 .75" /></svg>
+                </span>
+              </a>
+              <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <span
+                  className="dropdown-item pointer"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signup-modal"
+                  >
+                    Sign Up
+                  </span>
+                <span
+                  className="dropdown-item pointer"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signin-modal"
+                  >
+                    Sign In
+                  </span>
               </div>
-            </a>
-            <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-              <a href="#" className="dropdown-item">Status</a>
-              <a href="./profile.html" className="dropdown-item">Profile</a>
-              <a href="#" className="dropdown-item">Feedback</a>
-              <div className="dropdown-divider"></div>
-              <a href="./settings.html" className="dropdown-item">Settings</a>
-              <a href="./sign-in.html" className="dropdown-item">Logout</a>
             </div>
-          </div>
+          }
+
+          {
+            isLoggedIn &&
+            <div className="nav-item dropdown">
+              <a href="#" className="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+                <span className="avatar avatar-sm"></span>
+                <div className="d-none d-xl-block ps-2">
+                  <div>Paweł Kuna</div>
+                </div>
+              </a>
+              <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <a href="./profile.html" className="dropdown-item">Profile</a>
+                <div className="dropdown-divider"></div>
+                <a href="./sign-in.html" className="dropdown-item">Logout</a>
+              </div>
+            </div>
+          }
         </div>
       </div>
     </header>

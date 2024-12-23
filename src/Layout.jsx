@@ -1,8 +1,11 @@
 import { Outlet } from 'react-router';
 import TopHeader from './components/layout/TopHeader.jsx';
 import SecondLevelHeader from './components/layout/SecondLevelHeader.jsx';
+import AuthModals from './components/AuthModals.jsx';
 
 export default function Layout() {
+  const isLoggedIn = false;
+
   return (
     <div className="page">
       <TopHeader />
@@ -50,6 +53,10 @@ export default function Layout() {
           </div>
         </footer>
 
+        {
+          ! isLoggedIn &&
+          <AuthModals />
+        }
       </div>
     </div>
   )
