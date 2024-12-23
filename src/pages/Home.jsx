@@ -16,7 +16,7 @@ export default function Home() {
       <FilterModal />
 
       <div className="row mb-3">
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3 mb-md-0">
           {/*Carousel*/}
           <div id="carouselExample" className="carousel slide">
             <div className="carousel-indicators">
@@ -63,16 +63,16 @@ export default function Home() {
           {/*Carousel*/}
         </div>
 
-        <div className="col-md-3">
+        <div className="col-md-3 col-sm-6">
           <div className="row">
             {
               [0, 1, 2, 3].map((number) => (
-                <div className="col-12 mb-2">
+                <div className="col-12 mb-2 card-link-col">
 
                   <a className="card card-link" href="/news/123">
                     <div className="card-body">
                       <div className="row">
-                        <div className="col-4">
+                        <div className="col col-auto col-img">
                           <img src={"https://picsum.photos/id/9"+ number +"/300/240"} alt="Food Deliver UI dashboards" className="rounded" />
                         </div>
                         <div className="col">
@@ -90,16 +90,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="col-md-3">
+        <div className="col-md-3 col-sm-6">
           <div className="row">
             {
               [0, 1, 2, 3].map((number) => (
-                <div className="col-12 mb-2">
+                <div className="col-12 mb-2 card-link-col">
 
                   <a className="card card-link" href="#">
                     <div className="card-body">
                       <div className="row">
-                        <div className="col-4">
+                        <div className="col col-auto col-img">
                           <img src={"https://picsum.photos/id/1"+ number +"/300/240"} alt="Food Deliver UI dashboards" className="rounded" />
                         </div>
                         <div className="col">

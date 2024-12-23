@@ -42,18 +42,45 @@ svg.text-red {
     padding-top: 0;
 }
 
+.img-responsive img {
+    width: 100%;
+}
+
 .active-filter {
     border-bottom: 2px solid rgb(6, 111, 209);
 }
 
+.card-link img {
+    max-width: 65px;
+}
+
 @media only screen and (max-width: 992px) {
     .news-seach > input.form-control {
-        width: 450px;
+        width: 430px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media (min-width:768px) and (max-width:992px) {
+    .card-link-col:last-child,
+    .card-link-col .text-secondary {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .card-link .col-img {
+        margin-right: 12px;
+    }
+    .card-link img {
+        max-width: 90px;
+    }
     .news-seach > input.form-control {
         width: 300px;
+        width: calc(100vw - 140px);
+    }
+    .img-card-news .text-secondary {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }

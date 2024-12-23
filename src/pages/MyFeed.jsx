@@ -40,9 +40,9 @@ export default function MyFeed() {
       </div>
       <PreferencesModal />
 
-      <div className="row mb-3">
-        <div className="col-md-3">
-          <div className="card">
+      <div className="row">
+        <div className="col-md-3 col-6 mb-3">
+          <div className="card img-card-news">
             <div className="img-responsive img-responsive-21x9 card-img-top">
               <img src="https://picsum.photos/id/27/300/200" />
             </div>
@@ -54,8 +54,8 @@ export default function MyFeed() {
           </div>
         </div>
 
-        <div className="col-md-3">
-          <div className="card">
+        <div className="col-md-3 col-6 mb-3">
+          <div className="card img-card-news">
             <div className="img-responsive img-responsive-21x9 card-img-top">
               <img src="https://picsum.photos/id/45/300/200" />
             </div>
@@ -67,8 +67,8 @@ export default function MyFeed() {
           </div>
         </div>
 
-        <div className="col-md-3">
-          <div className="card">
+        <div className="col-md-3 col-6 mb-3">
+          <div className="card img-card-news">
             <div className="img-responsive img-responsive-21x9 card-img-top">
               <img src="https://picsum.photos/id/54/300/200" />
             </div>
@@ -80,8 +80,8 @@ export default function MyFeed() {
           </div>
         </div>
 
-        <div className="col-md-3">
-          <div className="card">
+        <div className="col-md-3 col-6 mb-3">
+          <div className="card img-card-news">
             <div className="img-responsive img-responsive-21x9 card-img-top">
               <img src="https://picsum.photos/id/72/300/200" />
             </div>

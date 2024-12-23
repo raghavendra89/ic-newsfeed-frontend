@@ -3,7 +3,7 @@ import FilterIcon from './FilterIcon.jsx';
 import { NavLink } from "react-router";
 
 export default function TopHeader() {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   const changeTheme = (theme) => {
     if (theme == 'dark') {
@@ -35,7 +35,7 @@ export default function TopHeader() {
         </div>
 
         <div className="navbar-nav flex-row order-md-last">
-          <div className="d-none d-md-flex me-3">
+          <div className="d-none d-md-flex me-1">
             <span
               className="nav-link px-0 hide-theme-dark pointer"
               title="Enable dark mode"
