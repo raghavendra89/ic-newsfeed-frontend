@@ -1,4 +1,15 @@
+import SearchResultsPlaceholder from '../components/placeholders/SearchResultsPlaceholder.jsx';
+
 export default function SearchResults() {
+
+  if (false) {
+    return (
+      <>
+        <SearchResultsPlaceholder />
+      </>
+    );
+  }
+
   return (
     <>
       <div className="row">

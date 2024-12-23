@@ -1,6 +1,15 @@
 import FilterModal from '../components/FilterModal.jsx';
+import HomePlaceholder from '../components/placeholders/HomePlaceholder.jsx';
 
 export default function Home() {
+
+  if (false) {
+    return (
+      <>
+        <HomePlaceholder />
+      </>
+    );
+  }
 
   return (
     <>
