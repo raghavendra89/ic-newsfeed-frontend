@@ -4,7 +4,6 @@ import { NavLink, useLocation } from "react-router";
 export default function SecondLevelHeader() {
   const location = useLocation();
 
-console.log(location);
   return (
     <header className="navbar-expand-md">
       <div className="collapse navbar-collapse" id="navbar-menu">

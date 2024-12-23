@@ -42,6 +42,10 @@ svg.text-red {
     padding-top: 0;
 }
 
+.active-filter {
+    border-bottom: 2px solid rgb(6, 111, 209);
+}
+
 @media only screen and (max-width: 992px) {
     .news-seach > input.form-control {
         width: 450px;
