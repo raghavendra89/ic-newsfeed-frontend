@@ -2,9 +2,11 @@ import { Outlet } from 'react-router';
 import TopHeader from './components/layout/TopHeader.jsx';
 import SecondLevelHeader from './components/layout/SecondLevelHeader.jsx';
 import AuthModals from './components/AuthModals.jsx';
+import SearchResults from './components/SearchResults.jsx';
 
 export default function Layout() {
   const isLoggedIn = false;
+  const isSearching = false;
 
   return (
     <div className="page">
@@ -27,7 +29,11 @@ export default function Layout() {
 
         <div className="page-body">
           <div className="container-xl">
-            <Outlet />
+            {
+              isSearching
+              ? <SearchResults />
+              : <Outlet />
+            }
           </div>
         </div>
 
