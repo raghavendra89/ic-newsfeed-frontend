@@ -7,6 +7,7 @@ import './App.css'
 import Home from './pages/Home.jsx'
 import MyFeed from './pages/MyFeed.jsx'
 import Preferences from './pages/Preferences.jsx'
+import SingleArticle from './pages/SingleArticle.jsx'
 import Layout from './Layout.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
           <Route index element={<Home />} />
           <Route path="/my-feed" element={<MyFeed />} />
           <Route path="/preferences" element={<Preferences />} />
+          <Route path="/news/:newsId" element={<SingleArticle />} />
         </Route>
       </Routes>
     </BrowserRouter>

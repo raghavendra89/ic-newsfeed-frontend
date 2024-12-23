@@ -60,7 +60,7 @@ export default function Home() {
               [0, 1, 2, 3].map((number) => (
                 <div className="col-12 mb-2">
 
-                  <a className="card card-link" href="#">
+                  <a className="card card-link" href="/news/123">
                     <div className="card-body">
                       <div className="row">
                         <div className="col-4">
