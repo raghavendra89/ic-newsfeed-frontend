@@ -1,8 +1,11 @@
+import FilterModal from '../components/FilterModal.jsx';
 
 export default function Home() {
 
   return (
     <>
+      <FilterModal />
+
       <div className="row mb-3">
         <div className="col-md-6">
           {/*Carousel*/}

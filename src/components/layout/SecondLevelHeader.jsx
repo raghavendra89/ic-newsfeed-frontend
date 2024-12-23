@@ -1,4 +1,5 @@
 import NewsSearch from './NewsSearch.jsx';
+import FilterIcon from './FilterIcon.jsx';
 import { NavLink, useLocation } from "react-router";
 
 export default function SecondLevelHeader() {
@@ -40,8 +41,10 @@ export default function SecondLevelHeader() {
         </div>
       </div>
 
-      <div className="p-2 d-block d-md-none">
+      <div className="p-2 d-flex d-md-none justify-content-between">
         <NewsSearch />
+
+        <FilterIcon />
       </div>
     </header>
   );

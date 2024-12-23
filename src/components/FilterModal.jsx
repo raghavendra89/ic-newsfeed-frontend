@@ -7,22 +7,22 @@ export default function PreferencesModal() {
   const preferences = {
     sources: ['The Guardian', 'New York Times', 'Sky News'],
     categories: ['The Guardian', 'New York Times', 'Sky News'],
-    authors: ['The Guardian', 'New York Times', 'Sky News']
+    date: []
   };
 
   return (
-    <div className="modal modal-blur fade" id="perferences-modal" tabIndex="-1" aria-modal="true" role="dialog">
+    <div className="modal modal-blur fade" id="filter-modal" tabIndex="-1" aria-modal="true" role="dialog">
       <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Set your news preferences</h5>
+            <h5 className="modal-title">Select Filter Options</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
 
             <div className="d-flex mb-3">
               {
-                ['Sources', 'Categories', 'Authors'].map(section => (
+                ['Sources', 'Categories', 'Date'].map(section => (
                   <div
                     className={"pointer p-2 mx-1 fs-3 " + (activeSection == section ? 'active-filter' : '')}
                     onClick={ () => setActiveSection(section) }
@@ -39,7 +39,7 @@ export default function PreferencesModal() {
           </div>
           <div className="modal-footer">
             <button type="button" className="btn me-auto" data-bs-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Save preferences</button>
+            <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Search</button>
           </div>
         </div>
       </div>

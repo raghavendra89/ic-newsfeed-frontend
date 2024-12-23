@@ -1,8 +1,11 @@
 import PreferencesModal from '../components/PreferencesModal.jsx';
+import FilterModal from '../components/FilterModal.jsx';
 
 export default function MyFeed() {
   return (
     <>
+      <FilterModal />
+
       <div className="row mb-3">
         <div className="col-12 text-end">
           <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#perferences-modal">
