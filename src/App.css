@@ -14,6 +14,14 @@
     cursor: pointer;
 }
 
+.navbar-brand-image {
+    fill: rgb(6, 111, 209);
+}
+
+.navbar-brand {
+    font-size: 18px;
+}
+
 .news-seach > input.form-control {
     width: 600px;
 }
@@ -28,6 +36,10 @@
 
 svg.text-red {
     fill: rgb(214, 57, 57);
+}
+
+.img-responsive {
+    padding-top: 0;
 }
 
 @media only screen and (max-width: 992px) {

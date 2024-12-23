@@ -4,7 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import '@tabler/core/src/scss/tabler.scss';
 import '@tabler/core';
 import './App.css'
-import App from './App.jsx'
+import Home from './pages/Home.jsx'
+import MyFeed from './pages/MyFeed.jsx'
+import Preferences from './pages/Preferences.jsx'
 import Layout from './Layout.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -12,9 +14,9 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<App />} />
-          <Route path="/my-feed" element={<App />} />
-          <Route path="/preferences" element={<App />} />
+          <Route index element={<Home />} />
+          <Route path="/my-feed" element={<MyFeed />} />
+          <Route path="/preferences" element={<Preferences />} />
         </Route>
       </Routes>
     </BrowserRouter>

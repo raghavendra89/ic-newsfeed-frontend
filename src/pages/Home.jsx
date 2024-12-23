@@ -1,14 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function Home() {
 
   return (
     <>
-      {/*<img src={viteLogo} className="logo" alt="Vite logo" />*/}
-
       <div className="row mb-3">
         <div className="col-md-6">
           {/*Carousel*/}
@@ -60,14 +54,14 @@ function App() {
         <div className="col-md-3">
           <div className="row">
             {
-              [0, 1, 2, 3].map(() => (
+              [0, 1, 2, 3].map((number) => (
                 <div className="col-12 mb-2">
 
                   <a className="card card-link" href="#">
                     <div className="card-body">
                       <div className="row">
                         <div className="col-4">
-                          <img src="https://cdn.dribbble.com/users/844826/screenshots/14553706/media/2be9a4847b939e02702648d058cf2df8.png" alt="Food Deliver UI dashboards" className="rounded" />
+                          <img src={"https://picsum.photos/id/9"+ number +"/300/240"} alt="Food Deliver UI dashboards" className="rounded" />
                         </div>
                         <div className="col">
                           <div className="font-weight-medium">Maryjo Lebarree</div>
@@ -87,14 +81,14 @@ function App() {
         <div className="col-md-3">
           <div className="row">
             {
-              [0, 1, 2, 3].map(() => (
+              [0, 1, 2, 3].map((number) => (
                 <div className="col-12 mb-2">
 
                   <a className="card card-link" href="#">
                     <div className="card-body">
                       <div className="row">
                         <div className="col-4">
-                          <img src="https://cdn.dribbble.com/users/844826/screenshots/14553706/media/2be9a4847b939e02702648d058cf2df8.png" alt="Food Deliver UI dashboards" className="rounded" />
+                          <img src={"https://picsum.photos/id/1"+ number +"/300/240"} alt="Food Deliver UI dashboards" className="rounded" />
                         </div>
                         <div className="col">
                           <div className="font-weight-medium">Maryjo Lebarree</div>
@@ -119,14 +113,14 @@ function App() {
           <div className="row">
 
             {
-              [0, 1, 2, 3, 4, 5, 6, 7].map(() => (
+              [0, 1, 2, 3, 4, 5, 6, 7].map((number) => (
                 <div className="col-12">
 
                   <div className="card rounded-0 border-bottom-0">
                     <div className="card-body">
                       <div className="row align-items-center">
                         <div className="col-3">
-                          <img src="https://cdn.dribbble.com/users/844826/screenshots/14553706/media/2be9a4847b939e02702648d058cf2df8.png" alt="Food Deliver UI dashboards" className="rounded" />
+                          <img src={"https://picsum.photos/id/5"+ number +"/300/200"} alt="Food Deliver UI dashboards" className="rounded" />
                         </div>
                         <div className="col">
                           <span className="pointer float-end">
@@ -155,14 +149,14 @@ function App() {
           <div className="row">
 
             {
-              [0, 1, 2, 3, 4, 5, 6, 7].map(() => (
+              [0, 1, 2, 3, 4, 5, 6, 7].map((number) => (
                 <div className="col-12">
 
                   <div className="card rounded-0 border-bottom-0">
                     <div className="card-body">
                       <div className="row align-items-center">
                         <div className="col-3">
-                          <img src="https://cdn.dribbble.com/users/844826/screenshots/14547977/media/e7749bd1b09d9415b8dc265a7dbe81f6.png" alt="Food Deliver UI dashboards" className="rounded" />
+                          <img src={"https://picsum.photos/id/7"+ number +"/300/200"} alt="Food Deliver UI dashboards" className="rounded" />
                         </div>
                         <div className="col">
                           <span className="pointer float-end">
@@ -192,5 +186,3 @@ function App() {
     </>
   )
 }
-
-export default App
