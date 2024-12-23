@@ -5,6 +5,16 @@ import { NavLink } from "react-router";
 export default function TopHeader() {
   const isLoggedIn = false;
 
+  const changeTheme = (theme) => {
+    if (theme == 'dark') {
+      document.getElementsByTagName('body')[0]
+              .setAttribute('data-bs-theme', 'dark');
+    } else {
+      document.getElementsByTagName('body')[0]
+              .removeAttribute('data-bs-theme');
+    }
+  }
+
   return (
     <header className="navbar navbar-expand-md d-print-none" >
       <div className="container-xl">
@@ -26,15 +36,25 @@ export default function TopHeader() {
 
         <div className="navbar-nav flex-row order-md-last">
           <div className="d-none d-md-flex me-3">
-            <a href="?theme=dark" className="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip"
-     data-bs-placement="bottom">
+            <span
+              className="nav-link px-0 hide-theme-dark pointer"
+              title="Enable dark mode"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              onClick={() => changeTheme('dark')}
+              >
               <svg xmlns="http://www.w3.org/2000/svg" className="icon" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
-            </a>
+            </span>
 
-            <a href="?theme=light" className="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip"
-     data-bs-placement="bottom">
+            <span
+              className="nav-link px-0 hide-theme-light pointer"
+              title="Enable light mode"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              onClick={() => changeTheme('light')}
+              >
               <svg xmlns="http://www.w3.org/2000/svg" className="icon" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
-            </a>
+            </span>
 
             <FilterIcon />
           </div>
