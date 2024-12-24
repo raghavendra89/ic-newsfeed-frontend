@@ -5,7 +5,7 @@ import HomePlaceholder from '@/components/placeholders/HomePlaceholder.jsx';
 import { NavLink, useOutletContext } from "react-router";
 
 export default function Home(props) {
-const [news] = useOutletContext();
+  const [news] = useOutletContext();
 
   if (! news.length) {
     return (

@@ -1,10 +1,12 @@
-import PreferencesModal from '../components/PreferencesModal.jsx';
-import FilterModal from '../components/FilterModal.jsx';
-import MyFeedPlaceholder from '../components/placeholders/MyFeedPlaceholder.jsx';
+import PreferencesModal from '@/components/PreferencesModal.jsx';
+import FilterModal from '@/components/FilterModal.jsx';
+import MyFeedPlaceholder from '@/components/placeholders/MyFeedPlaceholder.jsx';
+import { NavLink, useOutletContext } from "react-router";
 
 export default function MyFeed() {
+  const [news, preferedNews, preferencesEmpty] = useOutletContext();
 
-  if (false) {
+  if (! preferedNews.length) {
     return (
       <>
         <FilterModal />
@@ -20,7 +22,19 @@ export default function MyFeed() {
         </div>
         <PreferencesModal />
 
-        <MyFeedPlaceholder />
+        {
+          preferencesEmpty &&
+          <div className="row mb-3">
+            <div className="col-12 text-center">
+              <h4>You have not set any preferences. Start by setting the perferences.</h4>
+            </div>
+          </div>
+        }
+
+        {
+          ! preferencesEmpty &&
+          <MyFeedPlaceholder />
+        }
       </>
     );
   }

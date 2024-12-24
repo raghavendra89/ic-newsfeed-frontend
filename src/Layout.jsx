@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 import TopHeader from './components/layout/TopHeader.jsx';
 import SecondLevelHeader from './components/layout/SecondLevelHeader.jsx';
 import AuthModals from './components/AuthModals.jsx';
@@ -9,8 +9,9 @@ import {UserContext} from '@/lib/UserContext.js';
 import api from '@/lib/api.js';
 
 export default function Layout() {
-  const [news, fetchNews] = useNews();
+  const [news, preferedNews, fetchNews, preferencesEmpty] = useNews();
   const [user, setUser] = useState(null);
+  const location = useLocation();
   const isLoggedIn = false;
   const isSearching = false;
 
@@ -18,8 +19,8 @@ export default function Layout() {
     api.get('user')
         .then(data => {
           setUser(data?.data);
-        }).finally(() => fetchNews())
-  }, []);
+        }).finally(() => fetchNews(location.pathname))
+  }, [location.pathname]);
 
   return (
     <UserContext.Provider value={user}>
@@ -46,7 +47,7 @@ export default function Layout() {
               {
                 isSearching
                 ? <SearchResults />
-                : <Outlet context={[news]} />
+                : <Outlet context={[news, preferedNews, preferencesEmpty]} />
               }
             </div>
           </div>

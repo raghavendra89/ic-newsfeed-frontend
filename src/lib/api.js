@@ -8,6 +8,8 @@ const api = {
                 if (error.response.status == 401 && window.location.pathname == '/my-feed') {
                     window.location.replace('/');
                 }
+
+                throw(error);
             });
     },
     post: (url, params) => {
