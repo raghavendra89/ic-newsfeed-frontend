@@ -13,7 +13,6 @@ export default function Layout() {
 
   useEffect(() => {
     fetchNews();
-    console.log('Fetching news...');
   }, []);
 
   return (

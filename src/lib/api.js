@@ -15,6 +15,14 @@ const api = {
 
                 throw(error);
             });
+    },
+    register: (formData) => {
+        return axios.get('/sanctum/csrf-cookie')
+            .then(response => {
+                return axios.post('/api/register', formData)
+                        .then(response => response.data)
+                        .catch(error => error.response);
+            });
     }
 }
 

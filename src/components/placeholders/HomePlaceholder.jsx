@@ -11,8 +11,8 @@ export default function HomePlaceholder() {
         <div className="col-md-3">
           <div className="row">
             {
-              [0, 1, 2, 3].map(() => (
-                <div className="col-12 mb-2">
+              [0, 1, 2, 3].map((number) => (
+                <div className="col-12 mb-2" key={number} >
                   <div className="card">
                     <div className="row g-0 align-items-center placeholder-glow">
                       <div className="col-3">
@@ -36,8 +36,8 @@ export default function HomePlaceholder() {
         <div className="col-md-3">
           <div className="row">
             {
-              [0, 1, 2, 3].map(() => (
-                <div className="col-12 mb-2">
+              [0, 1, 2, 3].map((number) => (
+                <div className="col-12 mb-2" key={number} >
                   <div className="card">
                     <div className="row g-0 align-items-center placeholder-glow">
                       <div className="col-3">
@@ -67,7 +67,7 @@ export default function HomePlaceholder() {
 
             {
               [0, 1, 2].map((number) => (
-                <div className="col-12">
+                <div className="col-12" key={number}>
                   <div className="card">
                     <div className="row g-0 align-items-center placeholder-glow">
                       <div className="col-3">
@@ -93,7 +93,7 @@ export default function HomePlaceholder() {
 
             {
               [0, 1, 2].map((number) => (
-                <div className="col-12">
+                <div className="col-12" key={number} >
                   <div className="card">
                     <div className="row g-0 align-items-center placeholder-glow">
                       <div className="col-3">
