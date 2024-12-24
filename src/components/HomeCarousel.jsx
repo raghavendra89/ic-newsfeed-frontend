@@ -1,4 +1,4 @@
-export default function HomeCarousel({ news }) {console.log(news);
+export default function HomeCarousel({ news }) {
   return (
     <div id="home-carousel" className="carousel slide">
       <div className="carousel-indicators">

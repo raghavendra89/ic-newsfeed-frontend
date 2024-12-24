@@ -3,6 +3,7 @@ import NewsSearch from './NewsSearch.jsx';
 import FilterIcon from './FilterIcon.jsx';
 import { NavLink } from "react-router";
 import {UserContext} from '@/lib/UserContext.js';
+import api from '@/lib/api.js';
 
 export default function TopHeader() {
   const user = useContext(UserContext);
@@ -15,6 +16,13 @@ export default function TopHeader() {
       document.getElementsByTagName('body')[0]
               .removeAttribute('data-bs-theme');
     }
+  }
+
+  const logOut = () => {
+    api.post('logout')
+        .then(() => {
+          window.location.replace('/');
+        })
   }
 
   return (
@@ -102,7 +110,10 @@ export default function TopHeader() {
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <a href="./profile.html" className="dropdown-item">Profile</a>
                 <div className="dropdown-divider"></div>
-                <a href="./sign-in.html" className="dropdown-item">Logout</a>
+                <span
+                  className="dropdown-item"
+                  onClick={ logOut }
+                  >Logout</span>
               </div>
             </div>
           }
