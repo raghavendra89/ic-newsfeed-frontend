@@ -6,10 +6,19 @@ import AuthModals from './components/AuthModals.jsx';
 import SearchResults from './components/SearchResults.jsx';
 import useNews from '@/hooks/useNews.js';
 import {UserContext} from '@/lib/UserContext.js';
+import {NewsContext} from '@/lib/NewsContext.js';
 import api from '@/lib/api.js';
 
 export default function Layout() {
-  const [news, preferedNews, fetchNews, preferencesEmpty] = useNews();
+  const [
+    news,
+    preferedNews,
+    preferenceOptions,
+    fetchNews,
+    fetchPreferenceOptions,
+    preferencesEmpty
+  ] = useNews();
+
   const [user, setUser] = useState(null);
   const location = useLocation();
   const isLoggedIn = false;
@@ -19,67 +28,69 @@ export default function Layout() {
     api.get('user')
         .then(data => {
           setUser(data?.data);
-        }).finally(() => fetchNews(location.pathname))
+        }).finally(() => {
+          fetchNews(location.pathname);
+          fetchPreferenceOptions();
+        })
   }, [location.pathname]);
 
   return (
     <UserContext.Provider value={user}>
-      <div className="page">
-        <TopHeader />
+      <NewsContext.Provider
+        value={[
+            news,
+            preferedNews,
+            preferencesEmpty,
+            preferenceOptions
+        ]}
+        >
 
-        <SecondLevelHeader />
+        <div className="page">
+          <TopHeader />
 
-        <div className="page-wrapper">
-          {/*<div className="page-header d-print-none">
-            <div className="container-xl">
-              <div className="row g-2 align-items-center">
-                <div className="col">
-                  <h2 className="page-title">
-                    Empty page
-                  </h2>
-                </div>
+          <SecondLevelHeader />
+
+          <div className="page-wrapper">
+
+            <div className="page-body">
+              <div className="container-xl">
+                {
+                  isSearching
+                  ? <SearchResults />
+                  : <Outlet />
+                }
               </div>
             </div>
-          </div>*/}
 
-          <div className="page-body">
-            <div className="container-xl">
-              {
-                isSearching
-                ? <SearchResults />
-                : <Outlet context={[news, preferedNews, preferencesEmpty]} />
-              }
-            </div>
+            <footer className="footer footer-transparent d-print-none">
+              <div className="container-xl">
+                <div className="row text-center align-items-center flex-row-reverse">
+                  <div className="col-lg-auto ms-lg-auto">
+                    <ul className="list-inline list-inline-dots mb-0">
+                      <li className="list-inline-item"><a href="https://tabler.io/docs" target="_blank" className="link-secondary" rel="noopener">Documentation</a></li>
+                      <li className="list-inline-item"><a href="./license.html" className="link-secondary">License</a></li>
+                    </ul>
+                  </div>
+                  <div className="col-12 col-lg-auto mt-3 mt-lg-0">
+                    <ul className="list-inline list-inline-dots mb-0">
+                      <li className="list-inline-item">
+                        Copyright &copy; 2025
+                        <a href="." className="link-secondary">NewsFeed</a>.
+                        All rights reserved.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </footer>
+
+            {
+              ! isLoggedIn &&
+              <AuthModals />
+            }
           </div>
-
-          <footer className="footer footer-transparent d-print-none">
-            <div className="container-xl">
-              <div className="row text-center align-items-center flex-row-reverse">
-                <div className="col-lg-auto ms-lg-auto">
-                  <ul className="list-inline list-inline-dots mb-0">
-                    <li className="list-inline-item"><a href="https://tabler.io/docs" target="_blank" className="link-secondary" rel="noopener">Documentation</a></li>
-                    <li className="list-inline-item"><a href="./license.html" className="link-secondary">License</a></li>
-                  </ul>
-                </div>
-                <div className="col-12 col-lg-auto mt-3 mt-lg-0">
-                  <ul className="list-inline list-inline-dots mb-0">
-                    <li className="list-inline-item">
-                      Copyright &copy; 2025
-                      <a href="." className="link-secondary">NewsFeed</a>.
-                      All rights reserved.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </footer>
-
-          {
-            ! isLoggedIn &&
-            <AuthModals />
-          }
         </div>
-      </div>
+      </NewsContext.Provider>
     </UserContext.Provider>
   )
 }

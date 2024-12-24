@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import FilterModal from '@/components/FilterModal.jsx';
 import HomeCarousel from '@/components/HomeCarousel.jsx';
 import ArticleCard from '@/components/ArticleCard.jsx';
 import HomePlaceholder from '@/components/placeholders/HomePlaceholder.jsx';
-import { NavLink, useOutletContext } from "react-router";
+import { NavLink } from "react-router";
+import {NewsContext} from '@/lib/NewsContext.js';
 
 export default function Home(props) {
-  const [news] = useOutletContext();
+  const [news] = useContext(NewsContext);
 
   if (! news.length) {
     return (

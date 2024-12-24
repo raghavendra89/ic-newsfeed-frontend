@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import PreferencesModal from '@/components/PreferencesModal.jsx';
 import FilterModal from '@/components/FilterModal.jsx';
 import MyFeedPlaceholder from '@/components/placeholders/MyFeedPlaceholder.jsx';
-import { NavLink, useOutletContext } from "react-router";
+import { NavLink } from "react-router";
+import {NewsContext} from '@/lib/NewsContext.js';
 
 export default function MyFeed() {
-  const [news, preferedNews, preferencesEmpty] = useOutletContext();
+  const [
+    news,
+    preferedNews,
+    preferencesEmpty
+  ] = useContext(NewsContext);
 
   if (! preferedNews.length) {
     return (

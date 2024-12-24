@@ -6,6 +6,11 @@ export default function useNews() {
     const [news, setNews] = useState([]);
     const [preferedNews, setPreferedNews] = useState([]);
     const [preferencesEmpty, setPreferencesEmpty] = useState(false);
+    const [preferenceOptions, setPreferenceOptions] = useState({
+        sources: [],
+        categories: [],
+        authors: []
+    });
 
     const fetchNews = (pathname) => {
         const endpoint = pathname == '/my-feed'
@@ -25,5 +30,13 @@ export default function useNews() {
             });
     }
 
-    return [news, preferedNews, fetchNews, preferencesEmpty];
+    const fetchPreferenceOptions = () => {
+        api.get('preferences')
+            .then(data => {
+                setPreferenceOptions(data.data)
+            }).catch(error => {
+            });
+    }
+
+    return [news, preferedNews, preferenceOptions, fetchNews, fetchPreferenceOptions, preferencesEmpty];
 }
