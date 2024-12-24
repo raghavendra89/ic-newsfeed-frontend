@@ -17,7 +17,6 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/my-feed" element={<MyFeed />} />
-          <Route path="/preferences" element={<Preferences />} />
           <Route path="/news/:newsId" element={<SingleArticle />} />
         </Route>
       </Routes>
