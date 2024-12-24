@@ -1,9 +1,11 @@
+import { useContext } from 'react';
 import NewsSearch from './NewsSearch.jsx';
 import FilterIcon from './FilterIcon.jsx';
 import { NavLink } from "react-router";
+import {UserContext} from '@/lib/UserContext.js';
 
 export default function TopHeader() {
-  const isLoggedIn = false;
+  const user = useContext(UserContext);
 
   const changeTheme = (theme) => {
     if (theme == 'dark') {
@@ -60,7 +62,7 @@ export default function TopHeader() {
           </div>
 
           {
-            ! isLoggedIn &&
+            ! user &&
             <div className="nav-item dropdown">
               <a href="#" className="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
                 <span className="avatar avatar-sm">
@@ -87,7 +89,7 @@ export default function TopHeader() {
           }
 
           {
-            isLoggedIn &&
+            user &&
             <div className="nav-item dropdown">
               <a href="#" className="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
                 <span className="avatar avatar-sm"></span>

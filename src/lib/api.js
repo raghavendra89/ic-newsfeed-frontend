@@ -3,7 +3,12 @@ import axios from '@/lib/axios.js';
 const api = {
     get: (url) => {
         return axios.get('/api/' + url)
-            .then(response => response.data);
+            .then(response => response.data)
+            .catch(error => {
+                if (error.response.status == 401 && window.location.pathname == '/my-feed') {
+                    window.location.replace('/');
+                }
+            });
     },
     post: (url, params) => {
         return axios.post('/api/' + url, params)
