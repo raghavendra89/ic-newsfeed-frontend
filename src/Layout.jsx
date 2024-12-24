@@ -1,12 +1,20 @@
+import { useEffect } from 'react';
 import { Outlet } from 'react-router';
 import TopHeader from './components/layout/TopHeader.jsx';
 import SecondLevelHeader from './components/layout/SecondLevelHeader.jsx';
 import AuthModals from './components/AuthModals.jsx';
 import SearchResults from './components/SearchResults.jsx';
+import useNews from '@/hooks/useNews.js';
 
 export default function Layout() {
+  const [news, fetchNews] = useNews();
   const isLoggedIn = false;
   const isSearching = false;
+
+  useEffect(() => {
+    fetchNews();
+    console.log('Fetching news...');
+  }, []);
 
   return (
     <div className="page">
@@ -32,7 +40,7 @@ export default function Layout() {
             {
               isSearching
               ? <SearchResults />
-              : <Outlet />
+              : <Outlet context={[news]} />
             }
           </div>
         </div>
