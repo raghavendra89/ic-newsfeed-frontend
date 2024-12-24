@@ -3,8 +3,8 @@ export default function MyFeedPlaceholder() {
     <>
       <div className="row mb-3">
         {
-          [0, 1, 2, 3].map(() => (
-            <div className="col-md-3">
+          [0, 1, 2, 3].map((number) => (
+            <div className="col-md-3" key={number}>
               <div className="card placeholder-glow">
                 <div className="ratio ratio-16x9 card-img-top placeholder"></div>
                 <div className="card-body">
@@ -12,7 +12,7 @@ export default function MyFeedPlaceholder() {
                   <div className="placeholder placeholder-xs col-10"></div>
                   <div className="placeholder placeholder-xs col-11"></div>
                   <div className="mt-3">
-                    <a href="#" tabindex="-1" className="btn btn-primary disabled placeholder col-4" aria-hidden="true"></a>
+                    <a href="#" tabIndex="-1" className="btn btn-primary disabled placeholder col-4" aria-hidden="true"></a>
                   </div>
                 </div>
               </div>
@@ -28,7 +28,7 @@ export default function MyFeedPlaceholder() {
 
             {
               [0, 1, 2].map((number) => (
-                <div className="col-12">
+                <div className="col-12" key={number}>
                   <div className="card">
                     <div className="row g-0 align-items-center placeholder-glow">
                       <div className="col-3">
@@ -54,7 +54,7 @@ export default function MyFeedPlaceholder() {
 
             {
               [0, 1, 2].map((number) => (
-                <div className="col-12">
+                <div className="col-12" key={number}>
                   <div className="card">
                     <div className="row g-0 align-items-center placeholder-glow">
                       <div className="col-3">

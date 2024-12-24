@@ -1,23 +1,67 @@
-export default function PreferenceOptions(props) {
+import { useState, useEffect } from 'react';
+
+export default function PreferenceOptions({sectionName, options, selectedOptions, addOption, removeOption}) {
+  const [filteredOptions, setFilteredOptions] = useState([]);
+  const [searchOption, setSearchOption] = useState('');
+
+  useEffect(() => {
+    setFilteredOptions(options);
+  }, [options]);
+
+  useEffect(() => {
+    let filtered = [];
+    filtered = options?.filter(option => option.toLowerCase().indexOf(searchOption.toLowerCase()) !== -1);
+
+    setFilteredOptions(filtered);
+  }, [searchOption]);
+
+  const addRemoveSelectedOption = (target) => {
+    if (target.checked) {
+      addOption(sectionName.toLowerCase(), target.value);
+    } else {
+      removeOption(sectionName.toLowerCase(), target.value);
+    }
+  }
+
   return (
     <>
-      <h4 className="mb-2">Selected { props.name }:</h4>
+      <h4 className="mb-2">Selected { sectionName }:</h4>
       <div className="mb-3 p-2 border border-1 rounded">
-        <span className="tag bg-blue text-white mx-1">The Guardian<a href="#" className="btn-close"></a></span>
-        <span className="tag bg-blue text-white mx-1">New York Times<a href="#" className="btn-close"></a></span>
-        <span className="tag bg-blue text-white mx-1">Sky News<a href="#" className="btn-close"></a></span>
+        {
+          selectedOptions?.map(option => (
+            <span className="tag bg-blue text-white mx-1">
+              { option }
+              <span
+                className="btn-close"
+                onClick={() => removeOption(sectionName.toLowerCase(), option)}
+                >
+                </span>
+            </span>
+          ))
+        }
       </div>
 
       <div className="mb-3">
-        <input className="form-control" placeholder="Search here..." />
+        <input
+          className="form-control"
+          placeholder="Search here..."
+          value={searchOption}
+          onChange={(e) => setSearchOption(e.target.value)}
+          />
       </div>
 
       <div>
         {
-          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(() => (
-            <label className="form-check d-inline-block mx-1">
-              <input className="form-check-input" type="checkbox" />
-              <span className="form-check-label">The Guardian</span>
+          filteredOptions?.map((option, index) => (
+            <label className="form-check d-inline-block mx-1 pointer" key={index}>
+              <input
+                className="form-check-input"
+                type="checkbox"
+                onChange={(e) => addRemoveSelectedOption(e.target)}
+                value={option}
+                checked={ (selectedOptions.includes(option) ? true : false) }
+                />
+              <span className="form-check-label">{ option }</span>
             </label>
           ))
         }

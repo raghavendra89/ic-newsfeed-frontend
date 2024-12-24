@@ -33,10 +33,17 @@ export default function useNews() {
     const fetchPreferenceOptions = () => {
         api.get('preferences')
             .then(data => {
-                setPreferenceOptions(data.data)
+                setPreferenceOptions(data)
             }).catch(error => {
             });
     }
 
-    return [news, preferedNews, preferenceOptions, fetchNews, fetchPreferenceOptions, preferencesEmpty];
+    return [
+        news,
+        preferedNews,
+        preferenceOptions,
+        fetchNews,
+        fetchPreferenceOptions,
+        preferencesEmpty
+    ];
 }
