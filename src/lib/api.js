@@ -28,6 +28,14 @@ const api = {
                         .then(response => response.data)
                         .catch(error => error.response);
             });
+    },
+    login: (formData) => {
+        return axios.get('/sanctum/csrf-cookie')
+            .then(response => {
+                return axios.post('/api/login', formData)
+                        .then(response => response.data)
+                        .catch(error => error.response);
+            });
     }
 }
 

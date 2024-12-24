@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import api from '@/lib/api.js';
 
-export default function useAuth() {
+export default function useRegistration() {
     const [registerFromData, setRegisterFromData] = useState({
         first_name: '',
         last_name: '',
