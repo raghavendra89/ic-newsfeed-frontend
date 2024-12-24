@@ -17,7 +17,7 @@ export default function Layout() {
   useEffect(() => {
     api.get('user')
         .then(data => {
-          setUser(data.data);
+          setUser(data?.data);
         }).finally(() => fetchNews())
   }, []);
 
