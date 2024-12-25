@@ -1,8 +1,8 @@
 import SearchResultsPlaceholder from '../components/placeholders/SearchResultsPlaceholder.jsx';
 
-export default function SearchResults() {
+export default function SearchResults({searchedNews}) {
 
-  if (false) {
+  if (searchedNews === false) {
     return (
       <>
         <SearchResultsPlaceholder />
@@ -10,21 +10,31 @@ export default function SearchResults() {
     );
   }
 
+  if (! searchedNews.length) {
+    return (
+      <div className="row">
+         <div className="col-12 text-center my-5 py-5">
+           <h4 className="mb-2">We couldn't find any articles based on your search.</h4>
+         </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="row">
          <div className="col-12">
-           <h4 className="mb-2">Found 12 articles...</h4>
+           <h4 className="mb-2">Found {searchedNews.length} articles...</h4>
          </div>
 
         {
-          [0, 1, 2, 3, 4].map(number => (
-            <div className="col-12">
+          searchedNews.map((article, index) => (
+            <div className="col-12" key={index}>
               <a className="card card-link mb-2 pointer" href="#">
                 <div className="card-body">
                   <div className="row align-items-center">
                     <div className="col-3 col-md-2">
-                      <img src={"https://picsum.photos/id/2"+ number +"/300/200"} className="rounded" />
+                      <img src={ article.image } className="rounded" />
                     </div>
                     <div className="col">
                       <span className="pointer float-end">
@@ -32,14 +42,14 @@ export default function SearchResults() {
                       </span>
 
                       <h3 className="card-title mb-1">
-                        Arsenal is getting closer to the first trophy since 20 years.
+                        { article.name }
                       </h3>
                       <div className="text-secondary">
-                        This is a long text for the description. It shows the snippet of the news article. This is a long text for the description. It shows the snippet of the news article...
+                        { article.summary }
                       </div>
 
                       <div className="text-end">
-                        <span className="badge bg-blue text-white badge-pill px-2 py-1">The Guardian</span>
+                        <span className="badge bg-blue text-white badge-pill px-2 py-1">{article.source}</span>
                       </div>
 
                     </div>

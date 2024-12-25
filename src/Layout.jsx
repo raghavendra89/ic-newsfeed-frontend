@@ -16,13 +16,15 @@ export default function Layout() {
     preferenceOptions,
     fetchNews,
     fetchPreferenceOptions,
-    preferencesEmpty
+    preferencesEmpty,
+    isSearching,
+    disableSearching,
+    searchedNews
   ] = useNews();
 
   const [user, setUser] = useState(null);
   const location = useLocation();
   const isLoggedIn = false;
-  const isSearching = false;
 
   useEffect(() => {
     api.get('user')
@@ -41,14 +43,16 @@ export default function Layout() {
             news,
             preferedNews,
             preferencesEmpty,
-            preferenceOptions
+            preferenceOptions,
+            fetchNews,
+            isSearching
         ]}
         >
 
         <div className="page">
           <TopHeader />
 
-          <SecondLevelHeader />
+          <SecondLevelHeader disableSearching={disableSearching} />
 
           <div className="page-wrapper">
 
@@ -56,7 +60,7 @@ export default function Layout() {
               <div className="container-xl">
                 {
                   isSearching
-                  ? <SearchResults />
+                  ? <SearchResults searchedNews={searchedNews} />
                   : <Outlet />
                 }
               </div>
