@@ -19,7 +19,11 @@ export default function useNews() {
 
         api.get(endpoint)
             .then(data => {
-                setNews(data.data)
+                if (pathname == '/my-feed') {
+                    setPreferedNews(data.data);
+                } else {
+                    setNews(data.data)
+                }
             }).catch(error => {
                 if (
                     error.response.status == 422

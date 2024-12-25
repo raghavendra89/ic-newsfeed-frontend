@@ -35,8 +35,14 @@ export default function usePreferences() {
   const saveOptions = () => {
     api.post('user/preferences', selectedOptions)
         .then(data => {
-            console.log(data);
-            new Modal(document.getElementById('perferences-modal'), {}).hide();
+            document.getElementById('close-preferences-modal').click();
+            const backdrops = document.getElementsByClassName('modal-backdrop');
+            for (var i = 0; i < backdrops.length; i++) {
+              backdrops.item(i).remove();
+            }
+
+            // Show toast
+            location.reload();
         }).catch(error => {
         });
   }
@@ -49,7 +55,5 @@ export default function usePreferences() {
         });
   }
 
-  getOptions();
-
-  return [selectedOptions, addOption, removeOption, clearOptions, saveOptions];
+  return [selectedOptions, addOption, removeOption, clearOptions, getOptions, saveOptions];
 }

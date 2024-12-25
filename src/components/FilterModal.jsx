@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PreferenceOptions from './PreferenceOptions.jsx';
 
-export default function PreferencesModal() {
+export default function FilterModal() {
   const [activeSection, setActiveSection] = useState('Sources');
 
   const preferences = {

@@ -1,11 +1,15 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import PreferenceOptions from './PreferenceOptions.jsx';
 import {NewsContext} from '@/lib/NewsContext.js';
 import usePreferences from '@/hooks/usePreferences.js';
 
 export default function PreferencesModal() {
   const [activeSection, setActiveSection] = useState('Sources');
-  const [selectedOptions, addOption, removeOption, clearOptions, saveOptions] = usePreferences();
+  const [selectedOptions, addOption, removeOption, clearOptions, getOptions, saveOptions] = usePreferences();
+
+  useEffect(() => {
+    getOptions();
+  }, []);
 
   const [
     news,
@@ -49,7 +53,7 @@ export default function PreferencesModal() {
 
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn me-auto" data-bs-dismiss="modal">Close</button>
+            <button type="button" className="btn me-auto" id="close-preferences-modal" data-bs-dismiss="modal">Close</button>
             <button
               type="button"
               className="btn btn-danger"
