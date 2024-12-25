@@ -29,7 +29,7 @@ export default function Home(props) {
               news.slice(6, 10)?.map((article, index) => (
                 <div className="col-12 mb-2 card-link-col" key={index}>
 
-                  <NavLink className="card card-link" href="/news/123">
+                  <NavLink className="card card-link" to={"/news/" + article.id}>
                     <div className="card-body">
                       <div className="row">
                         <div className="col col-auto col-img">
@@ -56,7 +56,7 @@ export default function Home(props) {
               news.slice(10, 14)?.map((article, index) => (
                 <div className="col-12 mb-2 card-link-col" key={index}>
 
-                  <NavLink className="card card-link" href="/news/123">
+                  <NavLink className="card card-link" to={"/news/" + article.id}>
                     <div className="card-body">
                       <div className="row">
                         <div className="col col-auto col-img">

@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 export default function ArticleCard({ article }) {
   return (
     <div className="card rounded-0 border-bottom-0">
@@ -12,9 +14,9 @@ export default function ArticleCard({ article }) {
             </span>
 
             <h3 className="card-title mb-1">
-              <a href="#" className="text-reset">
+              <NavLink to={"news/" + article.id} className="text-reset">
                 { article.title.substr(0, 60) }...
-              </a>
+              </NavLink>
             </h3>
             <div className="text-secondary">
               { 

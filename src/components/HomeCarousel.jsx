@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 export default function HomeCarousel({ news }) {
   return (
     <div id="home-carousel" className="carousel slide">
@@ -23,7 +25,7 @@ export default function HomeCarousel({ news }) {
             <div className={"carousel-item " + (index == 0 ? 'active' : '')} key={index}>
               <img src={ article.image } className="d-block w-100" alt="..." />
               <div className="carousel-caption d-none d-md-block">
-                <h2>{ article.title }</h2>
+                <h2><NavLink to={"news/" + article.id}>{ article.title }</NavLink></h2>
                 <p>{ article.summary }</p>
               </div>
             </div>
