@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import PreferenceOptions from './PreferenceOptions.jsx';
 import {NewsContext} from '@/lib/NewsContext.js';
 import useFilters from '@/hooks/useFilters.js';
-import {Litepicker} from 'Litepicker';
+import {Litepicker} from 'litepicker';
 
 export default function FilterModal() {
   const [activeSection, setActiveSection] = useState('Sources');
