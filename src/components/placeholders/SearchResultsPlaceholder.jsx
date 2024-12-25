@@ -11,8 +11,8 @@ export default function SearchResultsPlaceholder() {
 
         <div className="col-12">
           {
-            [0, 1, 2].map((number) => (
-              <div className="row">
+            [0, 1, 2, 3, 4].map((number) => (
+              <div className="row" key={number}>
                 <div className="col-12">
                   <div className="card mb-2">
                     <div className="row g-0 align-items-center placeholder-glow">

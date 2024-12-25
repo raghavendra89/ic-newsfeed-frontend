@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import PreferencesModal from '@/components/PreferencesModal.jsx';
-import FilterModal from '@/components/FilterModal.jsx';
 import MyFeedPlaceholder from '@/components/placeholders/MyFeedPlaceholder.jsx';
 import { NavLink } from "react-router";
 import {NewsContext} from '@/lib/NewsContext.js';
@@ -14,8 +13,6 @@ export default function MyFeed() {
 
   return (
     <>
-      <FilterModal />
-
       <div className="row mb-3">
         <div className="col-12 text-end">
           <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#perferences-modal">
@@ -74,7 +71,7 @@ function PageContent({news}) {
       <div className="row mb-3">
         {
           news.slice(4, 30)?.map((article, index) => (
-              <div className="col-md-6 mb-2">
+              <div className="col-md-6 mb-2" key={index}>
 
                 <div className="card rounded-0 border-bottom-0">
                   <div className="card-body">

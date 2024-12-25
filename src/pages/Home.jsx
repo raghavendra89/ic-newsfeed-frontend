@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import FilterModal from '@/components/FilterModal.jsx';
 import HomeCarousel from '@/components/HomeCarousel.jsx';
 import ArticleCard from '@/components/ArticleCard.jsx';
 import HomePlaceholder from '@/components/placeholders/HomePlaceholder.jsx';
@@ -19,8 +18,6 @@ export default function Home(props) {
 
   return (
     <>
-      <FilterModal />
-
       <div className="row mb-3">
         <div className="col-md-6 mb-3 mb-md-0">
           <HomeCarousel news={news.slice(0, 6)} />
@@ -89,7 +86,7 @@ export default function Home(props) {
 
             {
               news.slice(14, 22)?.map((article, index) => (
-                <div className="col-12">
+                <div className="col-12" key={index}>
 
                   <ArticleCard article={article} key={index} />
 
@@ -105,7 +102,7 @@ export default function Home(props) {
 
             {
               news.slice(22, 30)?.map((article, index) => (
-                <div className="col-12">
+                <div className="col-12" key={index}>
 
                   <ArticleCard article={article} key={index} />
 

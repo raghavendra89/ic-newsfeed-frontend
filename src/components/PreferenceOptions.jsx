@@ -28,8 +28,8 @@ export default function PreferenceOptions({sectionName, options, selectedOptions
       <h4 className="mb-2">Selected { sectionName }:</h4>
       <div className="mb-3 p-2 border border-1 rounded">
         {
-          selectedOptions?.map(option => (
-            <span className="tag bg-blue text-white mx-1">
+          selectedOptions?.map((option, index) => (
+            <span className="tag bg-blue text-white mx-1" key={index}>
               { option }
               <span
                 className="btn-close"

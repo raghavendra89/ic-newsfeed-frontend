@@ -1,4 +1,16 @@
+import { useLocation } from 'react-router';
+import { Modal } from 'bootstrap';
+
 export default function FilterIcon() {
+  const location = useLocation();
+
+  if (location.pathname == '/my-feed') {
+    return (
+      <>
+      </>
+    );
+  }
+
   return (
     <>
       <div className="nav-item d-flex me-1 pointer" data-bs-toggle="modal" data-bs-target="#filter-modal">

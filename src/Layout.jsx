@@ -4,6 +4,7 @@ import TopHeader from './components/layout/TopHeader.jsx';
 import SecondLevelHeader from './components/layout/SecondLevelHeader.jsx';
 import AuthModals from './components/AuthModals.jsx';
 import SearchResults from './components/SearchResults.jsx';
+import FilterModal from '@/components/FilterModal.jsx';
 import useNews from '@/hooks/useNews.js';
 import {UserContext} from '@/lib/UserContext.js';
 import {NewsContext} from '@/lib/NewsContext.js';
@@ -94,6 +95,8 @@ export default function Layout() {
             }
           </div>
         </div>
+
+        <FilterModal />
       </NewsContext.Provider>
     </UserContext.Provider>
   )
