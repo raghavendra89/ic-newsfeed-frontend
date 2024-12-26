@@ -46,7 +46,7 @@ export default function Admin() {
     }, 5000)
   }
 
-  if (user && ! user.is_admin) {
+  if (! user || ! user.is_admin) {
     return (
       <>
         <div className="row">
