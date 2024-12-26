@@ -58,7 +58,8 @@ function PageContent({news}) {
                   <img src={ article.image } />
                 </div>
                 <div className="card-body">
-                  <h3 className="card-title">{ article.title?.substr(0, 36) }...</h3>
+                  <h3 className="card-title">
+                    <NavLink to={ "/news/" +article.id}>{ article.title?.substr(0, 36) }...</NavLink></h3>
                   <p className="text-secondary">{ article.summary?.substr(0, 125) }...</p>
                 </div>
               </div>
@@ -81,7 +82,7 @@ function PageContent({news}) {
                       </div>
                       <div className="col">
                         <h3 className="card-title mb-1">
-                          <NavLink to={ 'news/' } className="text-reset">{article.title?.substr(0, 110)}...</NavLink>
+                          <NavLink to={ '/news/' + article.id } className="text-reset">{article.title?.substr(0, 110)}...</NavLink>
                         </h3>
                         <div className="text-secondary">
                           {article.summary}...
