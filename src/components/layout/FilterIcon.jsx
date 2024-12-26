@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router';
-import { Modal } from 'bootstrap';
 
 export default function FilterIcon() {
   const location = useLocation();
