@@ -9,6 +9,10 @@ export default function Admin() {
 
   const [adminData, setAdminData] = useState({
     news_sources: {
+      'NewsAPI': 0,
+      'TheGuardian': 0,
+      'NyTimes': 0,
+      'NewsData': 0,
     },
     total_users: 0
   });
