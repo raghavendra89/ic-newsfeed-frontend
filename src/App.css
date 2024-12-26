@@ -72,6 +72,10 @@ svg.text-red {
     max-width: 65px;
 }
 
+.img-card-news img {
+    max-height: 190px;
+}
+
 @media only screen and (max-width: 992px) {
     .news-seach > input.form-control {
         width: 430px;

@@ -9,10 +9,10 @@ export default function Admin() {
 
   const [adminData, setAdminData] = useState({
     news_sources: {
-      'NewsAPI': 0,
+      'NewsApi': 0,
       'TheGuardian': 0,
       'NyTimes': 0,
-      'NewsData': 0,
+      'Newsdata': 0,
     },
     total_users: 0
   });
@@ -21,7 +21,11 @@ export default function Admin() {
   useEffect(() => {
     api.get('admin/data')
       .then(data => {
-        setAdminData(data);
+        let currentData = {...adminData};
+        currentData['news_sources'] = {...adminData['news_sources'], ...data['news_sources']};
+        currentData['total_users'] = data['total_users'];
+
+        setAdminData(currentData);
       });
   }, []);
 
@@ -30,7 +34,7 @@ export default function Admin() {
 
     api.post('admin/pull-news', {'source': source})
       .then(data => {
-        setStatus('Pulled ' + data.count + ' articles from' +  source);
+        setStatus('Pulled ' + data.count + ' articles from ' +  source);
 
         let currentData = {...adminData};
         currentData['news_sources'][source] += parseInt(data.count) || 0;

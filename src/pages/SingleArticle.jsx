@@ -7,7 +7,7 @@ export default function SingleArticle() {
   let params = useParams();
 
   useEffect(() => {
-    api.get('news/' + params.newsId)
+    api.get('articles/' + params.newsId)
         .then(data => {
           setArticle(data.data);
         })

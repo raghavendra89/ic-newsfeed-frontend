@@ -1,4 +1,5 @@
 import SearchResultsPlaceholder from '../components/placeholders/SearchResultsPlaceholder.jsx';
+import { NavLink } from "react-router";
 
 export default function SearchResults({searchedNews}) {
 
@@ -30,7 +31,7 @@ export default function SearchResults({searchedNews}) {
         {
           searchedNews.map((article, index) => (
             <div className="col-12" key={index}>
-              <a className="card card-link mb-2 pointer" href="#">
+              <NavLink className="card card-link mb-2 pointer" to={"news/" + article.id}>
                 <div className="card-body">
                   <div className="row align-items-center">
                     <div className="col-3 col-md-2">
@@ -55,7 +56,7 @@ export default function SearchResults({searchedNews}) {
                     </div>
                   </div>
                 </div>
-              </a>
+              </NavLink>
             </div>
           ))
         }

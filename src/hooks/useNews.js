@@ -45,14 +45,14 @@ export default function useNews() {
             .then(data => {
                 if (searchText || filters) {
                     setSearchedNews(data.data);
+                    setNews(null)
                     return;
                 }
 
                 if (pathname == '/my-feed') {
                     setPreferedNews(data.data);
                 } else {
-                    setNews([])
-                    // setNews(data.data)
+                    setNews(data.data)
                 }
             }).catch(error => {
                 if (
