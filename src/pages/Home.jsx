@@ -8,11 +8,21 @@ import {NewsContext} from '@/lib/NewsContext.js';
 export default function Home(props) {
   const [news] = useContext(NewsContext);
 
-  if (! news.length) {
+  if (news === null) {
     return (
       <>
         <HomePlaceholder />
       </>
+    );
+  }
+
+  if (! news.length) {
+    return (
+      <div className="row mb-2">
+        <div className="col-md-10 offset-md-1 text-center">
+          <h3>There are no news articles. You can login as admin user and pull the articles or run this artisan command in the console: <br /> <code>php artisan news:pull --source=SOURCE_OPTION</code></h3>
+        </div>
+      </div>
     );
   }
 

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import api from '@/lib/api.js';
 
 export default function useNews() {
-    const [news, setNews] = useState([]);
+    const [news, setNews] = useState(null);
     const [preferedNews, setPreferedNews] = useState([]);
     const [searchedNews, setSearchedNews] = useState(false);
     const [preferencesEmpty, setPreferencesEmpty] = useState(false);
@@ -51,7 +51,8 @@ export default function useNews() {
                 if (pathname == '/my-feed') {
                     setPreferedNews(data.data);
                 } else {
-                    setNews(data.data)
+                    setNews([])
+                    // setNews(data.data)
                 }
             }).catch(error => {
                 if (
