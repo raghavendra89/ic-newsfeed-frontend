@@ -11,11 +11,11 @@ export default defineConfig({
     },
   },
   server: {
+    host: true, // This allows Vite to accept connections from outside the container
+    port: 3000, // The port Vite will run on
+    strictPort: true, // If the port is already used, Vite will fail instead of picking another port
     watch: {
-    usePolling: true,
+      usePolling: true, // This is needed to work well inside Docker
     },
-    host: true, // Here
-    strictPort: true,
-    port: 5173, 
   }
 })
