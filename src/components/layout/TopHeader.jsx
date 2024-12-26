@@ -108,7 +108,6 @@ export default function TopHeader() {
                 </div>
               </a>
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="./profile.html" className="dropdown-item pointer">Profile</a>
                 <div className="dropdown-divider"></div>
                 <span
                   className="dropdown-item pointer"
